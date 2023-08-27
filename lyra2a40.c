@@ -53,7 +53,7 @@ void lyra2a40_hash(const char* input, char* output, uint32_t len)
         sph_sha256_context       ctx_sha;
 
         sph_cubehash512_init(&ctx_cubehash);
-        sph_cubehash512(&ctx_cubehash, (pbegin == pend ? pblank : static_cast<const void*>(&pbegin[0])), len);
+        sph_cubehash512(&ctx_cubehash, input, len);
         sph_cubehash512_close(&ctx_cubehash, (void*)hashB);
 
         LYRA2(&hashA[ 0], 32, &hashB[ 0], 32, &hashB[ 0], 32, 1, 8, 8);
