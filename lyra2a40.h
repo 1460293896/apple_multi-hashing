@@ -1,5 +1,5 @@
-#ifndef MEME_H
-#define MEME_H
+#ifndef Lyra2a40_H
+#define  Lyra2a40_H
 
 #ifdef __cplusplus
 extern "C" {
