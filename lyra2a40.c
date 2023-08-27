@@ -34,7 +34,7 @@ void lyra2a40_hash(const char* input, char* output, uint32_t len)
         unsigned char hashA[64] = { 0 };
         unsigned char hashB[64] = { 0 };
         static unsigned char pblank[1];
-        uint512 output;
+  
 
         sph_bmw512_context       ctx_bmw;
         sph_jh512_context        ctx_jh;
