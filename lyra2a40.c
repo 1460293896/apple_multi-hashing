@@ -20,9 +20,7 @@
 #include "crypto/sph_fugue.h"
 #include "crypto/sph_shabal.h"
 #include "crypto/sph_whirlpool.h"
-extern "C" {
 #include "crypto/sph_sha2.h"
-}
 #include "crypto/sph_haval.h"
 #include "crypto/sph_streebog.h"
 #include "crypto/sph_radiogatun.h"
