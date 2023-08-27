@@ -12,7 +12,7 @@
 #include "sha3/sph_echo.h"
 #include "sha3/sph_sha2.h"
 
-void meme_hash(const char* input, char* output, uint32_t len)
+void lyra2a40_hash(const char* input, char* output, uint32_t len)
 {
 	sph_blake512_context     ctx_blake;
 	sph_cubehash512_context  ctx_cubehash1;
