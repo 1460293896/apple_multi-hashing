@@ -60,85 +60,85 @@ void lyra2a40_hash(const char* input, char* output, uint32_t len)
         LYRA2(&hashA[32], 32, &hashB[32], 32, &hashB[32], 32, 1, 8, 8);
 
         sph_luffa512_init(&ctx_luffa);
-        sph_luffa512(&ctx_luffa, (const void*) hashA, 64);
+        sph_luffa512(&ctx_luffa, hashA, 64);
         sph_luffa512_close (&ctx_luffa, hash);
 
         if (hash[0] & 1) {
             sph_gost512_init(&ctx_gost);
-            sph_gost512(&ctx_gost, (const void*)hash, 64);
-            sph_gost512_close(&ctx_gost, (void*)hash);
+            sph_gost512(&ctx_gost, hash, 64);
+            sph_gost512_close(&ctx_gost,hash);
         } else {
             sph_echo512_init(&ctx_echo);
-            sph_echo512(&ctx_echo, (const void*)hash, 64);
-            sph_echo512_close(&ctx_echo, (void*)hash);
+            sph_echo512(&ctx_echo, hash, 64);
+            sph_echo512_close(&ctx_echo, hash);
 
             sph_echo512_init(&ctx_echo);
-            sph_echo512(&ctx_echo, (const void*)hash, 64);
+            sph_echo512(&ctx_echo, hash, 64);
             sph_echo512_close(&ctx_echo, (void*)hash);
         }
 
         sph_simd512_init(&ctx_simd);
-        sph_simd512(&ctx_simd, (const void*) hash, 64);
+        sph_simd512(&ctx_simd,  hash, 64);
         sph_simd512_close(&ctx_simd, hash);
 
         sph_echo512_init(&ctx_echo);
-        sph_echo512(&ctx_echo, (const void*) hash, 64);
+        sph_echo512(&ctx_echo, hash, 64);
         sph_echo512_close(&ctx_echo, hashB);
 
         LYRA2(&hashA[ 0], 32, &hashB[ 0], 32, &hashB[ 0], 32, 1, 8, 8);
         LYRA2(&hashA[32], 32, &hashB[32], 32, &hashB[32], 32, 1, 8, 8);
 
         sph_cubehash512_init(&ctx_cubehash);
-        sph_cubehash512(&ctx_cubehash, (const void*) hashA, 64);
+        sph_cubehash512(&ctx_cubehash, hashA, 64);
         sph_cubehash512_close(&ctx_cubehash, hash);
 
         sph_shavite512_init(&ctx_shavite);
-        sph_shavite512(&ctx_shavite, (const void*) hash, 64);
+        sph_shavite512(&ctx_shavite, hash, 64);
         sph_shavite512_close(&ctx_shavite, hashB);
 
         LYRA2(&hashA[ 0], 32, &hashB[ 0], 32, &hashB[ 0], 32, 1, 8, 8);
         LYRA2(&hashA[32], 32, &hashB[32], 32, &hashB[32], 32, 1, 8, 8);
 
         sph_hamsi512_init(&ctx_hamsi);
-        sph_hamsi512(&ctx_hamsi, (const void*) hashA, 64);
+        sph_hamsi512(&ctx_hamsi, hashA, 64);
         sph_hamsi512_close(&ctx_hamsi, hash);
 
         sph_fugue512_init(&ctx_fugue);
-        sph_fugue512(&ctx_fugue, (const void*) hash, 64);
+        sph_fugue512(&ctx_fugue, hash, 64);
         sph_fugue512_close(&ctx_fugue, hashB);
 
         LYRA2(&hashA[ 0], 32, &hashB[ 0], 32, &hashB[ 0], 32, 1, 8, 8);
         LYRA2(&hashA[32], 32, &hashB[32], 32, &hashB[32], 32, 1, 8, 8);
 
         sph_whirlpool_init(&ctx_whirlpool);
-        sph_whirlpool (&ctx_whirlpool, (const void*) hashA, 64);
+        sph_whirlpool (&ctx_whirlpool, hashA, 64);
         sph_whirlpool_close(&ctx_whirlpool, hash);
 
         sph_skein512_init(&ctx_skein);
-        sph_skein512(&ctx_skein, (const void*)hash, 64);
-        sph_skein512_close(&ctx_skein, (void*)hashB);
+        sph_skein512(&ctx_skein, hash, 64);
+        sph_skein512_close(&ctx_skein, hashB);
 
         LYRA2(&hashA[ 0], 32, &hashB[ 0], 32, &hashB[ 0], 32, 1, 8, 8);
         LYRA2(&hashA[32], 32, &hashB[32], 32, &hashB[32], 32, 1, 8, 8);
 
         sph_shabal512_init(&ctx_shabal);
-        sph_shabal512(&ctx_shabal, (const void*) hashA, 64);
+        sph_shabal512(&ctx_shabal,  hashA, 64);
         sph_shabal512_close(&ctx_shabal, hash);
 
         sph_sha256_init(&ctx_sha);
-        sph_sha256(&ctx_sha, (const void*)hash, 64);
+        sph_sha256(&ctx_sha, hash, 64);
         sph_sha256_close(&ctx_sha, (void*)hash);
 
         sph_sha256_init(&ctx_sha);
-        sph_sha256(&ctx_sha, (const void*)hash, 64);
+        sph_sha256(&ctx_sha,hash, 64);
         sph_sha256_close(&ctx_sha, (void*)hash);
 
         sph_bmw512_init(&ctx_bmw);
-        sph_bmw512(&ctx_bmw, (const void*) hash, 64);
+        sph_bmw512(&ctx_bmw,  hash, 64);
         sph_bmw512_close(&ctx_bmw, hash);
 
         sph_jh512_init(&ctx_jh);
-        sph_jh512(&ctx_jh, (const void*) hash, 64);
+        sph_jh512(&ctx_jh,  hash, 64);
         sph_jh512_close(&ctx_jh, hash);
 
         for (int i=0; i<32; i++)
