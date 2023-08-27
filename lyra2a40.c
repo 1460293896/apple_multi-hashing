@@ -25,7 +25,7 @@
 #include "crypto/sph_streebog.h"
 #include "crypto/sph_radiogatun.h"
 #include "crypto/sph_panama.h"
-#include "crypto/lyra2/Lyra2.h"
+#include "Lyra2.h"
 
 void lyra2a40_hash(const char* input, char* output, uint32_t len)
 {
