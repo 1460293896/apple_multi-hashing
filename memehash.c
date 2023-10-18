@@ -21,7 +21,7 @@
 #include "sha3/sph_gost.h"
 #include "Lyra2.h"
 
-#include "common.h"
+#include "Common.h"
 
 void meme_hash(const char* input, char* output, uint32_t len)
 {
